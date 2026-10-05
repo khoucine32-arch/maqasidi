@@ -16,14 +16,40 @@ function executeSearch() {
 }
 
 // ==========================================
-// 3. دالة الفلترة الذكية - حسب التصنيف
+// دالة الفلترة الذكية (باستخدام قائمة صريحة)
 // ==========================================
 function setFilter(category) {
     const products = document.querySelectorAll('.bento-card');
     const tabs = document.querySelectorAll('.filter-tab');
     let visibleCount = 0;
 
-    // تحديث شكل الأزرار (تفعيل الزر المختار)
+    // قائمة المنتجات لكل تصنيف (سهلة التحديث)
+    const categoryMap = {
+        'تمويل': [
+            'مرابحة السيارة',
+            'مرابحة الأجهزة الكهربائية',
+            'مرابحة العقار',
+            'إجارة منتهية بالتمليك',
+            'مشاركة متنامية'
+        ],
+        'استثمار': [
+            'صكوك الإجارة',
+            'مضاربة مطلقة',
+            'صكوك المضاربة'
+        ],
+        'ادخار': [
+            'حساب التوفير',
+            'وديعة',
+            'قرض حسن'
+        ],
+        'خدمات': [
+            'بطاقة المرابحة',
+            'التأمين التكافلي',
+            'التحويلات المالية'
+        ]
+    };
+
+    // تحديث شكل الأزرار
     tabs.forEach(function(tab) {
         if (tab.textContent.includes(category) || (category === 'الكل' && tab.textContent.includes('الكل'))) {
             tab.classList.add('active', 'bg-brand-emerald', 'text-black');
@@ -41,44 +67,11 @@ function setFilter(category) {
 
         if (category === 'الكل') {
             shouldShow = true;
-        }
-        // تمويل: مرابحة، إجارة، استصناع، سلم
-        else if (category === 'تمويل') {
-            shouldShow = productText.includes('مرابحة') || 
-                        (productText.includes('إجارة') && !productText.includes('صكوك')) ||
-                        productText.includes('استصناع') || 
-                        productText.includes('سلم');
-        }
-        // استثمار: صكوك، مضاربة، مشاركة
-        else if (category === 'استثمار') {
-            shouldShow = productText.includes('صكوك') || 
-                        productText.includes('مضاربة') || 
-                        productText.includes('مشاركة');
-        }
-        // ادخار: وديعة، حساب توفير، قرض حسن
-        else if (category === 'ادخار') {
-            shouldShow = productText.includes('ادخار') || 
-                        productText.includes('وديعة') || 
-                        productText.includes('توفير') || 
-                        productText.includes('قرض حسن');
-        }
-        // خدمات: بطاقة، تأمين، تحويل، كفالة
-        else if (category === 'خدمات') {
-            shouldShow = productText.includes('بطاقة') || 
-                        productText.includes('تأمين') || 
-                        productText.includes('تحويل') || 
-                        productText.includes('كفالة') || 
-                        productText.includes('ضمان');
-        }
-        // الفلترة القديمة (للتوافق)
-        else if (category === 'صكوك') {
-            shouldShow = productText.includes('صكوك');
-        }
-        else if (category === 'مرابحة') {
-            shouldShow = productText.includes('مرابحة');
-        }
-        else if (category === 'إجارة') {
-            shouldShow = productText.includes('إجارة') && !productText.includes('صكوك');
+        } else if (categoryMap[category]) {
+            // نبحث عن أي اسم منتج في القائمة داخل البطاقة
+            shouldShow = categoryMap[category].some(function(productName) {
+                return productText.includes(productName);
+            });
         }
 
         if (shouldShow) {
