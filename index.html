@@ -58,9 +58,8 @@
             }
         }
     </script>
-    
-    <!-- Custom Futuristic Styling -->
-    <style>
+
+<style>
         body {
             font-family: 'Tajawal', sans-serif;
             background-color: #030807;
@@ -304,16 +303,33 @@
                     </a>
                 </div>
 
+                               <!-- شريط التصنيفات -->
+                <div class="flex flex-wrap items-center justify-center gap-3 mb-10">
+                    <button onclick="setFilter('الكل')" class="filter-tab active px-6 py-3 rounded-full bg-brand-emerald text-black font-bold text-sm transition hover:bg-brand-gold">
+                        <i class="fa-solid fa-th-large ml-2"></i> الكل
+                    </button>
+                    <button onclick="setFilter('تمويل')" class="filter-tab px-6 py-3 rounded-full border border-brand-emerald/30 text-brand-emerald font-bold text-sm transition hover:bg-brand-emerald/10">
+                        <i class="fa-solid fa-hand-holding-dollar ml-2"></i> تمويل
+                    </button>
+                    <button onclick="setFilter('استثمار')" class="filter-tab px-6 py-3 rounded-full border border-brand-emerald/30 text-brand-emerald font-bold text-sm transition hover:bg-brand-emerald/10">
+                        <i class="fa-solid fa-chart-line ml-2"></i> استثمار
+                    </button>
+                    <button onclick="setFilter('ادخار')" class="filter-tab px-6 py-3 rounded-full border border-brand-emerald/30 text-brand-emerald font-bold text-sm transition hover:bg-brand-emerald/10">
+                        <i class="fa-solid fa-piggy-bank ml-2"></i> ادخار
+                    </button>
+                    <button onclick="setFilter('خدمات')" class="filter-tab px-6 py-3 rounded-full border border-brand-emerald/30 text-brand-emerald font-bold text-sm transition hover:bg-brand-emerald/10">
+                        <i class="fa-solid fa-briefcase ml-2"></i> خدمات مصرفية
+                    </button>
+                </div> 
                 <!-- Product Bento Grid -->
-                <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-                    
+                <div id="products-grid" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8"></div>
                     <!-- Product Card 1 -->
                     <div class="bento-card rounded-3xl p-7 flex flex-col justify-between relative group">
                         <div class="absolute top-0 right-0 w-full h-1 bg-gradient-to-r from-brand-emerald to-brand-cyan"></div>
                         
                         <div>
                             <!-- Header Info -->
-                            <div class="flex items-center justify-between mb-6">
+                            <div class="flex items-center justify-between mb-6>
                                 <span class="px-3 py-1 rounded-full bg-brand-emerald/10 border border-brand-emerald/30 text-brand-emerald text-xs font-black">
                                     <i class="fa-solid fa-car text-xs ml-1"></i> مرابحة
                                 </span>
@@ -328,7 +344,7 @@
                                 <div class="w-12 h-12 rounded-2xl bg-black/60 border border-brand-emerald/40 flex items-center justify-center text-brand-emerald font-black text-sm shadow-neon-emerald">
                                     سلام
                                 </div>
-                                <div>
+                                <div>"
                                     <h3 class="text-xl font-black text-white group-hover:text-brand-emerald transition-colors">مرابحة السيارة</h3>
                                     <p class="text-xs text-slate-400 font-semibold">مصرف السلام الجزائر</p>
                                 </div>
@@ -474,6 +490,141 @@
 
                 </div>
             </div>
+        <div class="bento-card rounded-3xl p-7 flex flex-col justify-between relative group">
+                        <div class="absolute top-0 right-0 w-full h-1 bg-gradient-to-r from-brand-emerald to-brand-cyan"></div>
+                        
+                        <div>
+                            <!-- Header Info -->
+                            <div class="flex items-center justify-between mb-6>
+                                <span class="px-3 py-1 rounded-full bg-brand-emerald/10 border border-brand-emerald/30 text-brand-emerald text-xs font-black">
+                                    <i class="fa-solid fa-laptop text-xs ml-1"></i> مرابحة
+                                </span>
+                                <div class="flex items-center gap-1.5 bg-brand-gold/10 px-3 py-1 rounded-full border border-brand-gold/30">
+                                    <i class="fa-solid fa-star text-brand-gold text-xs"></i>
+                                    <span class="text-brand-gold font-black text-xs">4.6</span>
+                                </div>
+                            </div>
+
+                            <!-- Institution & Title -->
+                            <div class="flex items-center gap-4 mb-6">
+                                <div class="w-12 h-12 rounded-2xl bg-black/60 border border-brand-emerald/40 flex items-center justify-center text-brand-emerald font-black text-sm shadow-neon-emerald">
+                                   بركة
+                                </div>
+                                <div>"
+                                    <h3 class="text-xl font-black text-white group-hover:text-brand-emerald transition-colors">مرابحة الأجهزة الإلكترونية
+                                    <p class="text-xs text-slate-400 font-semibold">بنك البركة الجزائري 
+                                </div>
+                            </div>
+
+                            <!-- Spec Metrics -->
+                            <div class="space-y-3 bg-black/40 p-4 rounded-2xl border border-brand-border/40 text-sm mb-6">
+                                <div class="flex justify-between items-center">
+                                    <span class="text-slate-400 font-semibold">المبلغ:</span>
+                                    <span class="font-bold text-white">100,000 - 2,000,000 دج</span>
+                                </div>
+                                <div class="flex justify-between items-center">
+                                    <span class="text-slate-400 font-semibold">المدة:</span>
+                                   <span class="font-black text-brand-emerald">6 - 36 شهراً</span>
+                                </div>
+                                <div class="flex justify-between items-center">
+                                    <span class="text-slate-400 font-semibold">نسبة الربح:</span>
+                                    <span class="font-black text-brand-emerald">7% سنوياً</span>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Card Buttons -->
+                    </div>
+                                                <div class="grid grid-cols-2 gap-3">
+                                <button onclick="showToast('عرض تفاصيل مرابحة الأجهزة الكهربائية')" class="px-3 py-2 rounded-lg bg-brand-emerald text-black font-bold text-xs hover:bg-brand-gold transition">
+                                    التفاصيل
+                                </button>
+                                <button onclick="showToast('إضافة مرابحة الأجهزة الكهربائية للمقارنة')" class="px-3 py-2 rounded-lg border border-brand-emerald text-brand-emerald font-bold text-xs hover:bg-brand-emerald/10 transition">
+                                    قارن
+                                </button>
+                            </div>
+                    </div>
+                      <!-- Header Info -->
+                                           <!-- Product Card 5: مرابحة العقار -->
+                        <div class="bento-card rounded-3xl p-7 flex flex-col justify-between relative group">
+                            <div class="absolute top-0 right-0 w-full h-1 bg-gradient-to-r from-brand-gold to-transparent"></div>
+                            <div>
+                                <div class="flex items-center justify-between mb-6">
+                                    <span class="px-3 py-1 rounded-full bg-brand-emerald/10 border border-brand-emerald/30 text-brand-emerald text-xs font-bold">مرابحة</span>
+                                    <div class="flex items-center gap-1.5 bg-brand-gold/10 px-3 py-1 rounded-full">
+                                        <i class="fa-solid fa-star text-brand-gold text-xs"></i>
+                                        <span class="text-brand-gold font-black text-xs">4.7</span>
+                                    </div>
+                                </div>
+                                <div class="flex items-center justify-between mb-6">
+                                    <div>
+                                        <h3 class="text-2xl font-black text-white mb-1">مرابحة العقار</h3>
+                                        <p class="text-slate-400 text-sm">مصرف السلام الجزائر</p>
+                                    </div>
+                                    <div class="w-14 h-14 rounded-2xl bg-brand-emerald/10 border border-brand-emerald/30 flex items-center justify-center">
+                                        <i class="fa-solid fa-building text-brand-emerald text-xl"></i>
+                                    </div>
+                                </div>
+                                <div class="space-y-3 mb-6 p-4 rounded-2xl bg-black/30 border border-white/5">
+                                    <div class="flex justify-between items-center">
+                                        <span class="text-slate-400 font-semibold text-sm">المبلغ:</span>
+                                        <span class="font-black text-brand-emerald text-sm">2,000,000 - 20,000,000 دج</span>
+                                    </div>
+                                    <div class="flex justify-between items-center">
+                                        <span class="text-slate-400 font-semibold text-sm">المدة:</span>
+                                        <span class="font-black text-brand-emerald text-sm">36 - 180 شهراً</span>
+                                    </div>
+                                    <div class="flex justify-between items-center">
+                                        <span class="text-slate-400 font-semibold text-sm">نسبة الربح:</span>
+                                        <span class="font-black text-brand-emerald text-sm">5.5% سنوياً</span>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="grid grid-cols-2 gap-3">
+                                <button onclick="showToast('عرض تفاصيل مرابحة العقار')" class="px-3 py-2 rounded-lg bg-brand-emerald text-black font-bold text-xs hover:bg-brand-gold transition">التفاصيل</button>
+                                <button onclick="showToast('إضافة مرابحة العقار للمقارنة')" class="px-3 py-2 rounded-lg border border-brand-emerald text-brand-emerald font-bold text-xs hover:bg-brand-emerald/10 transition">قارن</button>
+                            </div>
+                        </div>
+                                                <!-- Product Card 6: مشاركة متنامية -->
+                        <div class="bento-card rounded-3xl p-7 flex flex-col justify-between relative group">
+                            <div class="absolute top-0 right-0 w-full h-1 bg-gradient-to-r from-brand-cyan to-transparent"></div>
+                            <div>
+                                <div class="flex items-center justify-between mb-6">
+                                    <span class="px-3 py-1 rounded-full bg-brand-cyan/10 border border-brand-cyan/30 text-brand-cyan text-xs font-bold">مشاركة</span>
+                                    <div class="flex items-center gap-1.5 bg-brand-gold/10 px-3 py-1 rounded-full">
+                                        <i class="fa-solid fa-star text-brand-gold text-xs"></i>
+                                        <span class="text-brand-gold font-black text-xs">4.4</span>
+                                    </div>
+                                </div>
+                                <div class="flex items-center justify-between mb-6">
+                                    <div>
+                                        <h3 class="text-2xl font-black text-white mb-1">مشاركة متنامية</h3>
+                                        <p class="text-slate-400 text-sm">بنك البركة الجزائري</p>
+                                    </div>
+                                    <div class="w-14 h-14 rounded-2xl bg-brand-cyan/10 border border-brand-cyan/30 flex items-center justify-center">
+                                        <i class="fa-solid fa-handshake text-brand-cyan text-xl"></i>
+                                    </div>
+                                </div>
+                                <div class="space-y-3 mb-6 p-4 rounded-2xl bg-black/30 border border-white/5">
+                                    <div class="flex justify-between items-center">
+                                        <span class="text-slate-400 font-semibold text-sm">المبلغ:</span>
+                                        <span class="font-black text-brand-emerald text-sm">5,000,000 - 50,000,000 دج</span>
+                                    </div>
+                                    <div class="flex justify-between items-center">
+                                        <span class="text-slate-400 font-semibold text-sm">المدة:</span>
+                                        <span class="font-black text-brand-emerald text-sm">36 - 120 شهراً</span>
+                                    </div>
+                                    <div class="flex justify-between items-center">
+                                        <span class="text-slate-400 font-semibold text-sm">نسبة الربح:</span>
+                                        <span class="font-black text-brand-emerald text-sm">متفق عليها</span>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="grid grid-cols-2 gap-3">
+                                <button onclick="showToast('عرض تفاصيل مشاركة متنامية')" class="px-3 py-2 rounded-lg bg-brand-emerald text-black font-bold text-xs hover:bg-brand-gold transition">التفاصيل</button>
+                                <button onclick="showToast('إضافة مشاركة متنامية للمقارنة')" class="px-3 py-2 rounded-lg border border-brand-emerald text-brand-emerald font-bold text-xs hover:bg-brand-emerald/10 transition">قارن</button>
+                            </div>
+                        </div>     
         </section>
 
         <!-- Maqasidi AI Assistant Interactive Section -->
