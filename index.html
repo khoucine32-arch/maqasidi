@@ -9,7 +9,8 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;600;800&family=Tajawal:wght@400;500;700;800;900&display=swap" rel="stylesheet">
-    
+ <link href="https://fonts.cdnfonts.com/css/aalmaghribi" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Amiri:wght@400;700&family=Reem+Kufi:wght@400;500;600;700&display=swap" rel="stylesheet">
     <!-- Font Awesome Pro/Free Icons -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
     
@@ -108,7 +109,40 @@
         ::-webkit-scrollbar-track { background: #030807; }
         ::-webkit-scrollbar-thumb { background: rgba(0, 255, 157, 0.4); border-radius: 99px; }
         ::-webkit-scrollbar-thumb:hover { background: #00ff9d; }
-    </style>
+           /* الخط العربي الفخم للعناوين */
+        h1, h2, h3 {
+            font-family: 'Reem Kufi', 'Tajawal', sans-serif;
+            letter-spacing: -0.5px;
+        }
+
+        /* الشعار */
+        .logo-text, nav a:first-child {
+            font-family: 'Reem Kufi', 'Tajawal', sans-serif;
+        }
+
+        /* العناوين الرئيسية (Hero) */
+        h1 {
+            font-family: 'Reem Kufi', 'Tajawal', sans-serif;
+            font-weight: 700;
+        }
+                /* ===== الخط المغربي للعناوين الكبرى ===== */
+        h1, h2 {
+            font-family: 'AALMAGHRIBI', 'Reem Kufi', 'Tajawal', sans-serif;
+            letter-spacing: -0.5px;
+        }
+
+        /* الشعار */
+        .logo, nav .logo {
+            font-family: 'AALMAGHRIBI', 'Reem Kufi', 'Tajawal', sans-serif;
+            font-weight: 700;
+        }
+
+        /* العناوين الرئيسية للبطاقات */
+        h3 {
+            font-family: 'Reem Kufi', 'Tajawal', sans-serif;
+            font-weight: 700;
+        }
+   </style>
 </head>
 <body class="bg-cyber-grid min-h-screen flex flex-col justify-between selection:bg-brand-emerald selection:text-black">
 
@@ -625,6 +659,86 @@
                                 <button onclick="showToast('إضافة مشاركة متنامية للمقارنة')" class="px-3 py-2 rounded-lg border border-brand-emerald text-brand-emerald font-bold text-xs hover:bg-brand-emerald/10 transition">قارن</button>
                             </div>
                         </div> 
+                                                <!-- Product Card: الاستصناع -->
+                        <div class="bento-card rounded-3xl p-7 flex flex-col justify-between relative group" data-category="تمويل">
+                            <div class="absolute top-0 right-0 w-full h-1 bg-gradient-to-r from-brand-emerald to-transparent"></div>
+                            <div>
+                                <div class="flex items-center justify-between mb-6">
+                                    <span class="px-3 py-1 rounded-full bg-brand-emerald/10 border border-brand-emerald/30 text-brand-emerald text-xs font-bold">استصناع</span>
+                                    <div class="flex items-center gap-1.5 bg-brand-gold/10 px-3 py-1 rounded-full">
+                                        <i class="fa-solid fa-star text-brand-gold text-xs"></i>
+                                        <span class="text-brand-gold font-black text-xs">4.6</span>
+                                    </div>
+                                </div>
+                                <div class="flex items-center justify-between mb-6">
+                                    <div>
+                                        <h3 class="text-2xl font-black text-white mb-1">الاستصناع</h3>
+                                        <p class="text-slate-400 text-sm">مصرف السلام الجزائر</p>
+                                    </div>
+                                    <div class="w-14 h-14 rounded-2xl bg-brand-emerald/10 border border-brand-emerald/30 flex items-center justify-center">
+                                        <i class="fa-solid fa-industry text-brand-emerald text-xl"></i>
+                                    </div>
+                                </div>
+                                <div class="space-y-3 mb-6 p-4 rounded-2xl bg-black/30 border border-white/5">
+                                    <div class="flex justify-between items-center">
+                                        <span class="text-slate-400 font-semibold text-sm">المبلغ:</span>
+                                        <span class="font-black text-brand-emerald text-sm">5,000,000 - 100,000,000 دج</span>
+                                    </div>
+                                    <div class="flex justify-between items-center">
+                                        <span class="text-slate-400 font-semibold text-sm">المدة:</span>
+                                        <span class="font-black text-brand-emerald text-sm">12 - 60 شهراً</span>
+                                    </div>
+                                    <div class="flex justify-between items-center">
+                                        <span class="text-slate-400 font-semibold text-sm">نسبة الربح:</span>
+                                        <span class="font-black text-brand-emerald text-sm">حسب المواصفات</span>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="grid grid-cols-2 gap-3">
+                                <button onclick="showToast('عرض تفاصيل الاستصناع')" class="px-3 py-2 rounded-lg bg-brand-emerald text-black font-bold text-xs hover:bg-brand-gold transition">التفاصيل</button>
+                                <button onclick="showToast('إضافة الاستصناع للمقارنة')" class="px-3 py-2 rounded-lg border border-brand-emerald text-brand-emerald font-bold text-xs hover:bg-brand-emerald/10 transition">قارن</button>
+                            </div>
+                        </div>
+                                                <!-- Product Card: السلم -->
+                        <div class="bento-card rounded-3xl p-7 flex flex-col justify-between relative group" data-category="تمويل">
+                            <div class="absolute top-0 right-0 w-full h-1 bg-gradient-to-r from-brand-cyan to-transparent"></div>
+                            <div>
+                                <div class="flex items-center justify-between mb-6">
+                                    <span class="px-3 py-1 rounded-full bg-brand-cyan/10 border border-brand-cyan/30 text-brand-cyan text-xs font-bold">سلم</span>
+                                    <div class="flex items-center gap-1.5 bg-brand-gold/10 px-3 py-1 rounded-full">
+                                        <i class="fa-solid fa-star text-brand-gold text-xs"></i>
+                                        <span class="text-brand-gold font-black text-xs">4.4</span>
+                                    </div>
+                                </div>
+                                <div class="flex items-center justify-between mb-6">
+                                    <div>
+                                        <h3 class="text-2xl font-black text-white mb-1">السلم</h3>
+                                        <p class="text-slate-400 text-sm">بنك البركة الجزائري</p>
+                                    </div>
+                                    <div class="w-14 h-14 rounded-2xl bg-brand-cyan/10 border border-brand-cyan/30 flex items-center justify-center">
+                                        <i class="fa-solid fa-seedling text-brand-cyan text-xl"></i>
+                                    </div>
+                                </div>
+                                <div class="space-y-3 mb-6 p-4 rounded-2xl bg-black/30 border border-white/5">
+                                    <div class="flex justify-between items-center">
+                                        <span class="text-slate-400 font-semibold text-sm">المبلغ:</span>
+                                        <span class="font-black text-brand-emerald text-sm">1,000,000 - 20,000,000 دج</span>
+                                    </div>
+                                    <div class="flex justify-between items-center">
+                                        <span class="text-slate-400 font-semibold text-sm">المدة:</span>
+                                        <span class="font-black text-brand-emerald text-sm">3 - 12 شهراً</span>
+                                    </div>
+                                    <div class="flex justify-between items-center">
+                                        <span class="text-slate-400 font-semibold text-sm">نسبة الربح:</span>
+                                        <span class="font-black text-brand-emerald text-sm">حسب السلعة</span>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="grid grid-cols-2 gap-3">
+                                <button onclick="showToast('عرض تفاصيل السلم')" class="px-3 py-2 rounded-lg bg-brand-emerald text-black font-bold text-xs hover:bg-brand-gold transition">التفاصيل</button>
+                                <button onclick="showToast('إضافة السلم للمقارنة')" class="px-3 py-2 rounded-lg border border-brand-emerald text-brand-emerald font-bold text-xs hover:bg-brand-emerald/10 transition">قارن</button>
+                            </div>
+                        </div>
                                                 <!-- Product Card 7: مضاربة مطلقة -->
                         <div class="bento-card rounded-3xl p-7 flex flex-col justify-between relative group">
                             <div class="absolute top-0 right-0 w-full h-1 bg-gradient-to-r from-purple-500 to-transparent"></div>
