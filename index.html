@@ -142,7 +142,178 @@
             font-family: 'Reem Kufi', 'Tajawal', sans-serif;
             font-weight: 700;
         }
-   </style>
+           /* =========================================================
+           طبقة الفخامة الإسلامية — Islamic Luxury UI
+           ========================================================= */
+        :root {
+            --mq-bg: #031713;
+            --mq-emerald: #18c995;
+            --mq-emerald-soft: #7de4c1;
+            --mq-cyan: #42cfd0;
+            --mq-gold: #d7ae52;
+            --mq-gold-light: #f0d98d;
+            --mq-text: #f7f4e9;
+            --mq-muted: #aab9b2;
+        }
+
+        body {
+            background:
+                radial-gradient(circle at 50% -10%, rgba(24, 201, 149, 0.12), transparent 34%),
+                radial-gradient(circle at 100% 35%, rgba(215, 174, 82, 0.07), transparent 28%),
+                radial-gradient(circle at 0% 70%, rgba(66, 207, 208, 0.06), transparent 25%),
+                linear-gradient(180deg, #031713 0%, #020b09 52%, #031713 100%);
+            color: var(--mq-text);
+        }
+
+        /* إطار الصفحة الذهبي */
+        body::after {
+            content: "";
+            position: fixed;
+            inset: 10px;
+            pointer-events: none;
+            z-index: 40;
+            border: 1px solid rgba(215, 174, 82, 0.10);
+            border-radius: 18px;
+            box-shadow: inset 0 0 0 1px rgba(24, 201, 149, 0.035);
+        }
+
+        /* شريط التنقل */
+        header {
+            background: rgba(2, 15, 12, 0.86) !important;
+            border-bottom: 1px solid rgba(215, 174, 82, 0.18) !important;
+        }
+
+        header nav a:hover {
+            color: var(--mq-gold-light) !important;
+            background: rgba(215, 174, 82, 0.07) !important;
+        }
+
+        /* البطاقات */
+        .bento-card {
+            background: linear-gradient(145deg, rgba(10, 42, 34, 0.82), rgba(3, 18, 15, 0.92)) !important;
+            border: 1px solid rgba(215, 174, 82, 0.16) !important;
+            box-shadow: 0 18px 45px rgba(0, 0, 0, 0.20), inset 0 1px 0 rgba(255, 255, 255, 0.025);
+            border-radius: 24px !important;
+        }
+
+        .bento-card:hover {
+            border-color: rgba(215, 174, 82, 0.42) !important;
+            box-shadow: 0 24px 55px rgba(0, 0, 0, 0.28), 0 0 30px rgba(24, 201, 149, 0.09);
+        }
+
+        /* الأزرار */
+        #products .filter-tab.active {
+            background: linear-gradient(135deg, var(--mq-gold), #b98932) !important;
+            box-shadow: 0 10px 28px rgba(215, 174, 82, 0.14);
+        }
+
+        #products .filter-tab:not(.active):hover {
+            color: #f0d98d !important;
+            border-color: rgba(215, 174, 82, 0.5) !important;
+            background: rgba(215, 174, 82, 0.06) !important;
+        }
+
+        /* زخرفة العنوان الرئيسي */
+        #products h2 {
+            font-size: clamp(2rem, 4vw, 3.4rem) !important;
+            position: relative;
+        }
+
+        #products::before {
+            content: "";
+            position: absolute;
+            top: 35px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 170px;
+            height: 1px;
+            background: linear-gradient(90deg, transparent, var(--mq-gold), transparent);
+        }
+
+        /* التذييل */
+        footer {
+            background: linear-gradient(180deg, #041813, #020a08) !important;
+            border-top: 1px solid rgba(215, 174, 82, 0.22) !important;
+        }
+
+        footer::before {
+            content: "";
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 3px;
+            background: linear-gradient(90deg, transparent, var(--mq-gold), var(--mq-emerald), var(--mq-gold), transparent);
+            opacity: 0.65;
+        }
+
+        footer a:hover {
+            color: var(--mq-gold-light) !important;
+        }
+
+        /* تجاوب الهواتف */
+        @media (max-width: 767px) {
+            body::after {
+                inset: 5px;
+                border-radius: 12px;
+            }
+        }
+          /* ===== إجبار الشبكة على 3 أعمدة ===== */
+        #products-grid {
+            display: grid !important;
+            grid-template-columns: repeat(3, minmax(0, 1fr)) !important;
+            gap: 28px !important;
+            height: auto !important;
+            overflow: visible !important;
+            margin: 0 !important;
+        }
+
+        /* البطاقات نفسها */
+        #products-grid .bento-card {
+            min-width: 0 !important;
+            width: 100% !important;
+        }
+
+        /* التجاوب */
+        @media (max-width: 1024px) {
+            #products-grid {
+                grid-template-columns: repeat(2, minmax(0, 1fr)) !important;
+            }
+        }
+
+        @media (max-width: 767px) {
+            #products-grid {
+                grid-template-columns: 1fr !important;
+                gap: 20px !important;
+            }
+        }
+         /* إجبار الشبكة على 3 أعمدة */
+        #products-grid {
+            display: grid !important;
+            grid-template-columns: repeat(3, minmax(0, 1fr)) !important;
+            gap: 28px !important;
+            height: auto !important;
+            overflow: visible !important;
+            width: 100% !important;
+        }
+
+        #products-grid > .bento-card {
+            min-width: 0 !important;
+            width: 100% !important;
+        }
+
+        @media (max-width: 1024px) {
+            #products-grid {
+                grid-template-columns: repeat(2, minmax(0, 1fr)) !important;
+            }
+        }
+
+        @media (max-width: 767px) {
+            #products-grid {
+                grid-template-columns: 1fr !important;
+            }
+        }
+ </style>
 </head>
 <body class="bg-cyber-grid min-h-screen flex flex-col justify-between selection:bg-brand-emerald selection:text-black">
 
@@ -529,7 +700,13 @@
                         
                         <div>
                             <!-- Header Info -->
-                            <div class="flex items-center justify-between mb-6>
+                                            <!-- Product Card 4: مرابحة الأجهزة الإلكترونية -->
+                    <div class="bento-card rounded-3xl p-7 flex flex-col justify-between relative group">
+                        <div class="absolute top-0 right-0 w-full h-1 bg-gradient-to-r from-brand-emerald to-brand-cyan"></div>
+                        
+                        <div>
+                            <!-- Header Info -->
+                            <div class="flex items-center justify-between mb-6">
                                 <span class="px-3 py-1 rounded-full bg-brand-emerald/10 border border-brand-emerald/30 text-brand-emerald text-xs font-black">
                                     <i class="fa-solid fa-laptop text-xs ml-1"></i> مرابحة
                                 </span>
@@ -542,11 +719,11 @@
                             <!-- Institution & Title -->
                             <div class="flex items-center gap-4 mb-6">
                                 <div class="w-12 h-12 rounded-2xl bg-black/60 border border-brand-emerald/40 flex items-center justify-center text-brand-emerald font-black text-sm shadow-neon-emerald">
-                                   بركة
+                                    بركة
                                 </div>
-                                <div>"
-                                    <h3 class="text-xl font-black text-white group-hover:text-brand-emerald transition-colors">مرابحة الأجهزة الإلكترونية
-                                    <p class="text-xs text-slate-400 font-semibold">بنك البركة الجزائري 
+                                <div>
+                                    <h3 class="text-xl font-black text-white group-hover:text-brand-emerald transition-colors">مرابحة الأجهزة الإلكترونية</h3>
+                                    <p class="text-xs text-slate-400 font-semibold">بنك البركة الجزائري</p>
                                 </div>
                             </div>
 
@@ -558,7 +735,7 @@
                                 </div>
                                 <div class="flex justify-between items-center">
                                     <span class="text-slate-400 font-semibold">المدة:</span>
-                                   <span class="font-black text-brand-emerald">6 - 36 شهراً</span>
+                                    <span class="font-bold text-white">6 - 36 شهراً</span>
                                 </div>
                                 <div class="flex justify-between items-center">
                                     <span class="text-slate-400 font-semibold">نسبة الربح:</span>
@@ -568,16 +745,15 @@
                         </div>
 
                         <!-- Card Buttons -->
-                    </div>
-                                                <div class="grid grid-cols-2 gap-3">
-                                <button onclick="showToast('عرض تفاصيل مرابحة الأجهزة الكهربائية')" class="px-3 py-2 rounded-lg bg-brand-emerald text-black font-bold text-xs hover:bg-brand-gold transition">
-                                    التفاصيل
-                                </button>
-                                <button onclick="showToast('إضافة مرابحة الأجهزة الكهربائية للمقارنة')" class="px-3 py-2 rounded-lg border border-brand-emerald text-brand-emerald font-bold text-xs hover:bg-brand-emerald/10 transition">
-                                    قارن
-                                </button>
-                            </div>
-                    </div>
+                        <div class="grid grid-cols-2 gap-3">
+                            <button onclick="showToast('عرض تفاصيل مرابحة الأجهزة الإلكترونية')" class="py-3 rounded-xl bg-gradient-to-r from-brand-emerald to-brand-cyan hover:opacity-90 text-black font-black text-sm shadow-neon-emerald transition-all">
+                                التفاصيل
+                            </button>
+                            <button onclick="showToast('تمت إضافة مرابحة الأجهزة الإلكترونية للمقارنة')" class="py-3 rounded-xl border border-brand-border hover:bg-brand-emerald/10 text-brand-emerald font-bold text-sm transition-all">
+                                قارن
+                            </button>
+                        </div>
+                    </div>     
                       <!-- Header Info -->
                                            <!-- Product Card 5: مرابحة العقار -->
                         <div class="bento-card rounded-3xl p-7 flex flex-col justify-between relative group">
@@ -1058,6 +1234,7 @@
                                 <button onclick="showToast('عرض تفاصيل التحويلات المالية')" class="px-3 py-2 rounded-lg bg-brand-emerald text-black font-bold text-xs hover:bg-brand-gold transition">التفاصيل</button>
                                 <button onclick="showToast('إضافة التحويلات المالية للمقارنة')" class="px-3 py-2 rounded-lg border border-brand-emerald text-brand-emerald font-bold text-xs hover:bg-brand-emerald/10 transition">قارن</button>
                             </div>
+                        </div>
                         </div>              
         </section>
 
@@ -1226,7 +1403,26 @@
         <i class="fa-solid fa-circle-check text-base"></i>
         <span id="toast-message">تمت العملية بنجاح</span>
     </div>
-       
+  <script>
+document.addEventListener('DOMContentLoaded', function() {
+    const section = document.getElementById('products');
+    const grid = document.getElementById('products-grid');
+    
+    if (!section || !grid) return;
+    
+    // ابحث عن جميع البطاقات داخل قسم المنتجات
+    const allCards = section.querySelectorAll('.bento-card');
+    
+    // انقل أي بطاقة خارج الشبكة إلى داخلها
+    allCards.forEach(function(card) {
+        if (!grid.contains(card)) {
+            grid.appendChild(card);
+        }
+    });
+    
+    console.log('✅ تم تجميع البطاقات: ' + allCards.length + ' بطاقة');
+});
+</script>  
 <script src="script.js"></script>
 </body>
 </html>
