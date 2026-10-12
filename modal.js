@@ -184,10 +184,10 @@ function displayModal(product) {
             
             <!-- الأزرار -->
             <div class="grid grid-cols-2 gap-4">
-                <button onclick="showToast('تمت إضافة ${product.name} للمفضلة')" class="py-4 rounded-2xl bg-gradient-to-r from-brand-emerald to-brand-cyan text-black font-black hover:opacity-90 transition">
-                    <i class="fa-solid fa-heart ml-2"></i>
-                    أضف للمفضلة
-                </button>
+            <button onclick='addToFavorite(${JSON.stringify(product).replace(/'/g, "&#39;")}); closeModal();' class="py-4 rounded-2xl bg-gradient-to-r from-brand-emerald to-brand-cyan text-black font-black hover:opacity-90 transition">
+    <i class="fa-solid fa-heart ml-2"></i>
+    أضف للمفضلة
+</button>
                 <button onclick='addToCompare(${JSON.stringify(product).replace(/'/g, "&#39;")}); closeModal();' class="py-4 rounded-2xl border border-brand-emerald text-brand-emerald font-bold hover:bg-brand-emerald/10 transition">
     <i class="fa-solid fa-scale-balanced ml-2"></i>
     أضف للمقارنة
