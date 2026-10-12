@@ -188,10 +188,10 @@ function displayModal(product) {
                     <i class="fa-solid fa-heart ml-2"></i>
                     أضف للمفضلة
                 </button>
-                <button onclick="showToast('تمت إضافة ${product.name} للمقارنة'); closeModal();" class="py-4 rounded-2xl border border-brand-emerald text-brand-emerald font-bold hover:bg-brand-emerald/10 transition">
-                    <i class="fa-solid fa-scale-balanced ml-2"></i>
-                    أضف للمقارنة
-                </button>
+                <button onclick='addToCompare(${JSON.stringify(product).replace(/'/g, "&#39;")}); closeModal();' class="py-4 rounded-2xl border border-brand-emerald text-brand-emerald font-bold hover:bg-brand-emerald/10 transition">
+    <i class="fa-solid fa-scale-balanced ml-2"></i>
+    أضف للمقارنة
+</button>
             </div>
             
         </div>
