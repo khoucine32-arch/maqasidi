@@ -1435,6 +1435,19 @@ fetch('http://localhost:5000/api/products')
     .catch(error => {
         console.error('❌ فشل الاتصال بالـ API:', error);
     });
+</script>
+<script>
+// اختبار الاتصال بالـ API
+fetch('http://localhost:5000/api/products')
+    .then(response => response.json())
+    .then(data => {
+        console.log('✅ تم الاتصال بالـ API بنجاح!');
+        console.log('📦 عدد المنتجات:', data.count);
+        console.log('📋 البيانات:', data.data);
+    })
+    .catch(error => {
+        console.error('❌ فشل الاتصال بالـ API:', error);
+    });
 </script>  
 <script src="script.js"></script>
 </body>
