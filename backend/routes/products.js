@@ -1,8 +1,11 @@
 const express = require('express');
 const router = express.Router();
 const Product = require('../models/Product');
+const { calculateMaqasidScore } = require('../utils/maqasidCalculator');
 
+// ==========================================
 // جلب جميع المنتجات
+// ==========================================
 router.get('/', async (req, res) => {
     try {
         const products = await Product.find();
@@ -19,7 +22,9 @@ router.get('/', async (req, res) => {
     }
 });
 
+// ==========================================
 // جلب منتج واحد بالـ ID
+// ==========================================
 router.get('/:id', async (req, res) => {
     try {
         const product = await Product.findById(req.params.id);
@@ -32,6 +37,40 @@ router.get('/:id', async (req, res) => {
         res.json({
             success: true,
             data: product
+        });
+    } catch (error) {
+        res.status(500).json({
+            success: false,
+            message: error.message
+        });
+    }
+});
+
+// ==========================================
+// Maqasid Score - البحث بالاسم
+// ==========================================
+router.get('/by-name/:name/maqasid', async (req, res) => {
+    try {
+        const productName = decodeURIComponent(req.params.name);
+        const product = await Product.findOne({ name: productName });
+        
+        if (!product) {
+            return res.status(404).json({
+                success: false,
+                message: 'المنتج غير موجود: ' + productName
+            });
+        }
+        
+        const score = calculateMaqasidScore(product);
+        
+        res.json({
+            success: true,
+            product: {
+                id: product._id,
+                name: product.name,
+                bank: product.bank
+            },
+            maqasid: score
         });
     } catch (error) {
         res.status(500).json({
