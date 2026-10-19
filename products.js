@@ -106,6 +106,27 @@ function createProductCard(product) {
                     <span class="font-black text-brand-emerald text-sm">${product.rate}</span>
                 </div>
             </div>
+                        ${product.fiqhGate ? `
+            <div class="mb-3 flex items-center justify-between">
+                <span class="text-xs font-bold px-3 py-1.5 rounded-full ${
+                    product.fiqhGate.passed && !product.fiqhGate.controversial ? 'bg-emerald-500/20 text-emerald-400 border border-emerald-500/40' :
+                    product.fiqhGate.controversial ? 'bg-yellow-500/20 text-yellow-400 border border-yellow-500/40' :
+                    'bg-red-500/20 text-red-400 border border-red-500/40'
+                }">
+                    <i class="fa-solid ${
+                        product.fiqhGate.passed && !product.fiqhGate.controversial ? 'fa-check-circle' :
+                        product.fiqhGate.controversial ? 'fa-triangle-exclamation' :
+                        'fa-times-circle'
+                    } ml-1"></i>
+                    ${
+                        product.fiqhGate.passed && !product.fiqhGate.controversial ? 'صحيح فقهياً' :
+                        product.fiqhGate.controversial ? 'محل خلاف' :
+                        'مرفوض'
+                    }
+                </span>
+                <span class="text-xs text-slate-400">${product.fiqhGate.school || 'مالكي'}</span>
+            </div>
+            ` : ''}
                         ${product.maqasid && product.maqasid.gate && product.maqasid.gate.passed ? `
             <div class="mb-6 p-4 rounded-2xl bg-gradient-to-r from-brand-emerald/10 to-brand-cyan/10 border border-brand-emerald/30">
                 <div class="flex items-center justify-between mb-3">
