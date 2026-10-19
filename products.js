@@ -106,6 +106,41 @@ function createProductCard(product) {
                     <span class="font-black text-brand-emerald text-sm">${product.rate}</span>
                 </div>
             </div>
+                        ${product.maqasid && product.maqasid.gate && product.maqasid.gate.passed ? `
+            <div class="mb-6 p-4 rounded-2xl bg-gradient-to-r from-brand-emerald/10 to-brand-cyan/10 border border-brand-emerald/30">
+                <div class="flex items-center justify-between mb-3">
+                    <span class="text-slate-300 font-bold text-xs flex items-center gap-2">
+                        <i class="fa-solid fa-scale-balanced text-brand-emerald"></i>
+                        التقييم المقاصدي
+                    </span>
+                    <span class="text-xs font-black px-2.5 py-1 rounded-full ${
+                        product.maqasid.total >= 85 ? 'bg-emerald-500/20 text-emerald-400 border border-emerald-500/40' :
+                        product.maqasid.total >= 70 ? 'bg-blue-500/20 text-blue-400 border border-blue-500/40' :
+                        product.maqasid.total >= 55 ? 'bg-yellow-500/20 text-yellow-400 border border-yellow-500/40' :
+                        'bg-red-500/20 text-red-400 border border-red-500/40'
+                    }">${product.maqasid.grade}</span>
+                </div>
+                <div class="flex items-center gap-3">
+                    <div class="text-3xl font-black ${
+                        product.maqasid.total >= 85 ? 'text-emerald-400' :
+                        product.maqasid.total >= 70 ? 'text-blue-400' :
+                        product.maqasid.total >= 55 ? 'text-yellow-400' :
+                        'text-red-400'
+                    }">${product.maqasid.total}</div>
+                    <div class="flex-grow">
+                        <div class="w-full bg-black/40 rounded-full h-2">
+                            <div class="h-2 rounded-full ${
+                                product.maqasid.total >= 85 ? 'bg-gradient-to-r from-emerald-500 to-emerald-400' :
+                                product.maqasid.total >= 70 ? 'bg-gradient-to-r from-blue-500 to-blue-400' :
+                                product.maqasid.total >= 55 ? 'bg-gradient-to-r from-yellow-500 to-yellow-400' :
+                                'bg-gradient-to-r from-red-500 to-red-400'
+                            }" style="width: ${product.maqasid.total}%"></div>
+                        </div>
+                        <div class="text-slate-400 text-xs mt-1 font-semibold">من 100</div>
+                    </div>
+                </div>
+            </div>
+            ` : ''}
         </div>
         <div class="grid grid-cols-2 gap-3">
             <button onclick="showProductDetails('${product._id}')" class="px-3 py-2 rounded-lg bg-brand-emerald text-black font-bold text-xs hover:bg-brand-gold transition">التفاصيل</button>
