@@ -1,0 +1,235 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>كيف نقيم؟ | منهجية Maqasid Score - مقاصدي</title>
+    
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Tajawal:wght@400;500;700;800;900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        brand: {
+                            dark: '#030807',
+                            emerald: '#00ff9d',
+                            cyan: '#00f0ff',
+                            gold: '#ffd700',
+                            border: 'rgba(0, 255, 157, 0.18)',
+                        }
+                    },
+                    fontFamily: { sans: ['Tajawal', 'sans-serif'] }
+                }
+            }
+        }
+    </script>
+    <style>
+        body { font-family: 'Tajawal', sans-serif; background-color: #030807; color: #f1f5f9; }
+        .bento-card {
+            background: linear-gradient(145deg, rgba(10, 42, 34, 0.82), rgba(3, 18, 15, 0.92));
+            border: 1px solid rgba(215, 174, 82, 0.16);
+            border-radius: 24px;
+        }
+        .text-holo-emerald {
+            background: linear-gradient(135deg, #ffffff 0%, #00ff9d 50%, #00f0ff 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+    </style>
+</head>
+<body class="min-h-screen">
+
+    <!-- Header -->
+    <header class="bg-brand-dark/90 backdrop-blur-xl border-b border-brand-border sticky top-0 z-50">
+        <div class="max-w-7xl mx-auto px-4 py-4 flex items-center justify-between">
+            <a href="index.html" class="flex items-center gap-2 text-white font-black text-2xl">
+                <i class="fa-solid fa-moon text-brand-gold"></i> مقاصدي
+            </a>
+            <a href="index.html" class="px-5 py-2 rounded-xl bg-brand-emerald/10 border border-brand-emerald/30 text-brand-emerald font-bold hover:bg-brand-emerald/20 transition">
+                <i class="fa-solid fa-arrow-right ml-2"></i> العودة للمنصة
+            </a>
+        </div>
+    </header>
+
+    <!-- Hero -->
+    <section class="py-16 text-center">
+        <div class="max-w-4xl mx-auto px-4">
+            <div class="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-brand-gold/10 border border-brand-gold/30 text-brand-gold text-sm font-bold mb-6">
+                <i class="fa-solid fa-scale-balanced"></i>
+                منهجية Maqasid Score
+            </div>
+            <h1 class="text-4xl sm:text-6xl font-black text-white mb-6 leading-tight">
+                كيف نقيم <span class="text-holo-emerald">المنتجات المالية؟</span>
+            </h1>
+            <p class="text-lg text-slate-300 leading-relaxed">
+                منهجية شفافة قائمة على مقاصد الشريعة الإسلامية، مبنية على 5 محاور و15 مؤشراً، مع توثيق كامل لكل درجة.
+            </p>
+        </div>
+    </section>
+
+    <!-- المحاور الخمسة -->
+    <section class="py-12">
+        <div class="max-w-7xl mx-auto px-4">
+            <h2 class="text-3xl font-black text-center text-white mb-12">المحاور الخمسة</h2>
+            
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+                
+                <!-- المحور 1 -->
+                <div class="bento-card p-6">
+                    <div class="w-14 h-14 rounded-2xl bg-brand-emerald/10 border border-brand-emerald/30 flex items-center justify-center mb-4">
+                        <i class="fa-solid fa-shield-halved text-brand-emerald text-2xl"></i>
+                    </div>
+                    <h3 class="text-xl font-black text-white mb-2">حفظ المال</h3>
+                    <div class="text-brand-emerald font-black text-3xl mb-2">25%</div>
+                    <p class="text-slate-400 text-sm">مدى حماية المنتج لأموال المستخدم من الضياع والربا.</p>
+                </div>
+
+                <!-- المحور 2 -->
+                <div class="bento-card p-6">
+                    <div class="w-14 h-14 rounded-2xl bg-brand-cyan/10 border border-brand-cyan/30 flex items-center justify-center mb-4">
+                        <i class="fa-solid fa-scale-balanced text-brand-cyan text-2xl"></i>
+                    </div>
+                    <h3 class="text-xl font-black text-white mb-2">العدالة</h3>
+                    <div class="text-brand-cyan font-black text-3xl mb-2">25%</div>
+                    <p class="text-slate-400 text-sm">توزيع عادل للمخاطر والعوائد بين الأطراف.</p>
+                </div>
+
+                <!-- المحور 3 -->
+                <div class="bento-card p-6">
+                    <div class="w-14 h-14 rounded-2xl bg-purple-500/10 border border-purple-500/30 flex items-center justify-center mb-4">
+                        <i class="fa-solid fa-chart-line text-purple-400 text-2xl"></i>
+                    </div>
+                    <h3 class="text-xl font-black text-white mb-2">الرواج الاقتصادي</h3>
+                    <div class="text-purple-400 font-black text-3xl mb-2">20%</div>
+                    <p class="text-slate-400 text-sm">خدمة المنتج للاقتصاد الحقيقي، لا للمضاربة.</p>
+                </div>
+
+                <!-- المحور 4 -->
+                <div class="bento-card p-6">
+                    <div class="w-14 h-14 rounded-2xl bg-brand-gold/10 border border-brand-gold/30 flex items-center justify-center mb-4">
+                        <i class="fa-solid fa-eye text-brand-gold text-2xl"></i>
+                    </div>
+                    <h3 class="text-xl font-black text-white mb-2">الشفافية</h3>
+                    <div class="text-brand-gold font-black text-3xl mb-2">20%</div>
+                    <p class="text-slate-400 text-sm">وضوح الشروط والرسوم وآلية التسعير.</p>
+                </div>
+
+                <!-- المحور 5 -->
+                <div class="bento-card p-6">
+                    <div class="w-14 h-14 rounded-2xl bg-blue-500/10 border border-blue-500/30 flex items-center justify-center mb-4">
+                        <i class="fa-solid fa-hand-holding-heart text-blue-400 text-2xl"></i>
+                    </div>
+                    <h3 class="text-xl font-black text-white mb-2">يُسر العمل</h3>
+                    <div class="text-blue-400 font-black text-3xl mb-2">10%</div>
+                    <p class="text-slate-400 text-sm">سهولة الوصول والحصول على المنتج.</p>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- المؤشرات -->
+    <section class="py-12">
+        <div class="max-w-4xl mx-auto px-4">
+            <h2 class="text-3xl font-black text-center text-white mb-8">كيف نحسب الدرجة؟</h2>
+            
+            <div class="bento-card p-8">
+                <div class="space-y-6">
+                    <div>
+                        <h3 class="text-white font-black mb-2">1. التحقق من البوابة (Gate)</h3>
+                        <p class="text-slate-400">المنتج يجب أن يكون لديه: شهادة شرعية (G1)، عقد نموذجي (G2)، ووجود فعلي في السوق (G3).</p>
+                    </div>
+                    <div>
+                        <h3 class="text-white font-black mb-2">2. تقييم المؤشرات (15 مؤشراً)</h3>
+                        <p class="text-slate-400">كل مؤشر يأخذ: 0 (غير موجود)، 1 (جزئي)، أو 2 (كامل).</p>
+                    </div>
+                    <div>
+                        <h3 class="text-white font-black mb-2">3. حساب درجة المحور</h3>
+                        <p class="text-slate-400">(مجموع نقاط المؤشرات ÷ الحد الأقصى) × 100.</p>
+                    </div>
+                    <div>
+                        <h3 class="text-white font-black mb-2">4. حساب الدرجة الإجمالية</h3>
+                        <p class="text-slate-400">مجموع (درجة المحور × وزنه) لكل المحاور الخمسة.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- التصنيفات -->
+    <section class="py-12">
+        <div class="max-w-4xl mx-auto px-4">
+            <h2 class="text-3xl font-black text-center text-white mb-8">التصنيفات</h2>
+            
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+                <div class="bento-card p-5 border-emerald-500/40">
+                    <div class="flex items-center justify-between mb-2">
+                        <span class="text-white font-black">ممتاز</span>
+                        <span class="text-emerald-400 font-black text-xl">85+</span>
+                    </div>
+                    <p class="text-slate-400 text-sm">منتج يتوافق تماماً مع المقاصد الشرعية.</p>
+                </div>
+                <div class="bento-card p-5 border-blue-500/40">
+                    <div class="flex items-center justify-between mb-2">
+                        <span class="text-white font-black">جيد</span>
+                        <span class="text-blue-400 font-black text-xl">70-84</span>
+                    </div>
+                    <p class="text-slate-400 text-sm">منتج متوافق بشكل عام مع بعض الفرص للتحسين.</p>
+                </div>
+                <div class="bento-card p-5 border-yellow-500/40">
+                    <div class="flex items-center justify-between mb-2">
+                        <span class="text-white font-black">مقبول</span>
+                        <span class="text-yellow-400 font-black text-xl">55-69</span>
+                    </div>
+                    <p class="text-slate-400 text-sm">منتج يحتاج إلى مراجعة في بعض الجوانب.</p>
+                </div>
+                <div class="bento-card p-5 border-red-500/40">
+                    <div class="flex items-center justify-between mb-2">
+                        <span class="text-white font-black">يحتاج تحسيناً</span>
+                        <span class="text-red-400 font-black text-xl">&lt; 55</span>
+                    </div>
+                    <p class="text-slate-400 text-sm">منتج به فجوات كبيرة تحتاج إلى معالجة.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Disclaimer -->
+    <section class="py-12">
+        <div class="max-w-4xl mx-auto px-4">
+            <div class="bento-card p-8 border-brand-gold/40">
+                <h3 class="text-xl font-black text-brand-gold mb-4 flex items-center gap-2">
+                    <i class="fa-solid fa-triangle-exclamation"></i>
+                    إخلاء المسؤولية
+                </h3>
+                <p class="text-slate-300 leading-relaxed">
+                    هذه الدرجة تقيس <strong class="text-white">الإفصاح والممارسة</strong>، وليست فتوى شرعية ولا نصيحة مالية. المنصة لا تصدر أحكاماً شرعية، بل تنقل ما تقرره الهيئات الشرعية المخولة، وتقيس مدى وضوح المعلومات المقدمة للمستخدم. للاستشارات الشرعية الملزمة، يُرجى الرجوع إلى الهيئة الشرعية للمصرف المعني.
+                </p>
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA -->
+    <section class="py-16 text-center">
+        <div class="max-w-2xl mx-auto px-4">
+            <h2 class="text-3xl font-black text-white mb-4">جاهز لاستكشاف المنتجات؟</h2>
+            <p class="text-slate-400 mb-6">اكتشف الآن 40 منتجاً مالياً مقيّماً بأحدث منهجية.</p>
+            <a href="index.html" class="inline-flex items-center gap-2 px-8 py-4 rounded-2xl bg-gradient-to-r from-brand-emerald to-brand-cyan text-black font-black hover:opacity-90 transition">
+                <i class="fa-solid fa-arrow-left"></i>
+                استكشف المنتجات
+            </a>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-black border-t border-brand-border/30 py-8 text-center text-slate-500 text-sm">
+        <p>© 2026 منصة مقاصدي — جميع الحقوق محفوظة</p>
+    </footer>
+
+</body>
+</html>
