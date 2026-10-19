@@ -1,10 +1,10 @@
 const express = require('express');
 const router = express.Router();
 const Product = require('../models/Product');
-const { calculateMaqasidScore } = require('../utils/maqasidCalculator');
+const { calculateMaqasidScore, checkFiqhGate } = require('../utils/maqasidCalculator');
 
 // ==========================================
-// جلب جميع المنتجات
+// 1. جلب جميع المنتجات
 // ==========================================
 router.get('/', async (req, res) => {
     try {
@@ -23,7 +23,7 @@ router.get('/', async (req, res) => {
 });
 
 // ==========================================
-// جلب منتج واحد بالـ ID
+// 2. جلب منتج واحد بالـ ID
 // ==========================================
 router.get('/:id', async (req, res) => {
     try {
@@ -47,7 +47,7 @@ router.get('/:id', async (req, res) => {
 });
 
 // ==========================================
-// Maqasid Score - البحث بالاسم
+// 3. Maqasid Score - البحث بالاسم
 // ==========================================
 router.get('/by-name/:name/maqasid', async (req, res) => {
     try {
@@ -71,6 +71,40 @@ router.get('/by-name/:name/maqasid', async (req, res) => {
                 bank: product.bank
             },
             maqasid: score
+        });
+    } catch (error) {
+        res.status(500).json({
+            success: false,
+            message: error.message
+        });
+    }
+});
+
+// ==========================================
+// 4. البوابة الفقهية (Fiqh Gate) - البحث بالاسم
+// ==========================================
+router.get('/by-name/:name/fiqh', async (req, res) => {
+    try {
+        const productName = decodeURIComponent(req.params.name);
+        const product = await Product.findOne({ name: productName });
+        
+        if (!product) {
+            return res.status(404).json({
+                success: false,
+                message: 'المنتج غير موجود: ' + productName
+            });
+        }
+        
+        const fiqhGate = checkFiqhGate(product);
+        
+        res.json({
+            success: true,
+            product: {
+                id: product._id,
+                name: product.name,
+                bank: product.bank
+            },
+            fiqhGate: fiqhGate
         });
     } catch (error) {
         res.status(500).json({

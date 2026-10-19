@@ -85,6 +85,32 @@ function calculateMaqasidScore(product) {
         grade
     };
 }
+// ==========================================
+// التحقق من البوابة الفقهية (Fiqh Gate)
+// ==========================================
+function checkFiqhGate(product) {
+    const gate = product.fiqhGate || {};
+    
+    const passed = 
+        gate.contractValid === true &&
+        gate.noRiba === true &&
+        gate.noGharar === true &&
+        gate.noMaysir === true &&
+        gate.noInvalidConditions === true;
+    
+    return {
+        contractValid: gate.contractValid || false,
+        noRiba: gate.noRiba || false,
+        noGharar: gate.noGharar || false,
+        noMaysir: gate.noMaysir || false,
+        noInvalidConditions: gate.noInvalidConditions || false,
+        passed: passed,
+        school: gate.school || 'مالكي',
+        controversial: gate.controversial || false,
+        controversyNote: gate.controversyNote || '',
+        references: gate.references || []
+    };
+}
 
 // ==========================================
 // تصدير الدوال
@@ -92,6 +118,7 @@ function calculateMaqasidScore(product) {
 module.exports = {
     calculateMaqasidScore,
     calculateAxisScore,
+    checkFiqhGate,
     WEIGHTS,
     AXES_INDICATORS
 };

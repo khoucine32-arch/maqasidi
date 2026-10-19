@@ -33,7 +33,21 @@ const productSchema = new mongoose.Schema({
         type: Number,
         default: 0
     },
-    
+        // ... (الحقول السابقة)
+
+    // ===== البوابة الفقهية (Fiqh Gate) =====
+    fiqhGate: {
+        contractValid: { type: Boolean, default: false },  // صحة العقد (أركان + شروط)
+        noRiba: { type: Boolean, default: false },         // الخلو من الربا
+        noGharar: { type: Boolean, default: false },       // الخلو من الغرر الفاحش
+        noMaysir: { type: Boolean, default: false },       // الخلو من الميسر
+        noInvalidConditions: { type: Boolean, default: false }, // الخلو من الشروط الفاسدة
+        passed: { type: Boolean, default: false },         // النتيجة النهائية
+        school: { type: String, default: 'مالكي' },        // المذهب المعتمد
+        controversial: { type: Boolean, default: false },  // هل هو محل خلاف؟
+        controversyNote: { type: String, default: '' },    // ملاحظة عن الخلاف
+        references: [{ type: String }]                     // المراجع الفقهية
+    },
     // ===== Maqasid Score (الجديد) =====
     maqasid: {
         // ----- البوابة الدخول -----
