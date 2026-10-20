@@ -31,3 +31,24 @@ body {
 h1, h2 {
     text-shadow: 0 0 20px rgba(215, 174, 82, 0.3);
 }
+/* ===== الخطوط الفخمة ===== */
+h1, h2 {
+    font-family: 'Amiri', 'Tajawal', serif !important;
+    letter-spacing: -0.5px;
+}
+
+/* الشعار (مقاصدي) */
+.logo-text, nav a:first-child span {
+    font-family: 'Amiri', 'Tajawal', serif !important;
+    font-weight: 700;
+}
+
+/* عناوين البطاقات (مرابحة السيارة...) */
+.bento-card h3 {
+    font-family: 'Amiri', 'Tajawal', serif !important;
+    font-weight: 700;
+}/* ===== الخطوط الفخمة ===== */
+h1, h2 {
+    font-family: 'Amiri', 'Tajawal', serif !important;
+    letter-spacing: -0.5px;
+}

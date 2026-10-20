@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>المكتبة الشرعية | مقاصدي</title>
+    
+    <link href="https://fonts.googleapis.com/css2?family=Amiri:wght@400;700&family=Tajawal:wght@400;500;700;800;900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <script src="https://cdn.tailwindcss.com"></script>
+        <script>
+        tailwind.config = {
+            darkMode: 'class',
+            theme: {
+                extend: {
+                    colors: {
+                        brand: {
+                            dark: '#030807',
+                            card: 'rgba(8, 22, 19, 0.65)',
+                            emerald: '#00ff9d',
+                            cyan: '#00f0ff',
+                            gold: '#ffd700',
+                            border: 'rgba(0, 255, 157, 0.18)',
+                        }
+                    },
+                    fontFamily: {
+                        sans: ['Tajawal', 'sans-serif'],
+                    },
+                }
+            }
+        }
+    </script>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body class="min-h-screen">
+
+    <!-- Header -->
+    <header class="bg-brand-dark/90 backdrop-blur-xl border-b border-brand-border sticky top-0 z-50">
+        <div class="max-w-7xl mx-auto px-4 py-4 flex items-center justify-between">
+            <a href="index.html" class="flex items-center gap-2 text-white font-black text-2xl">
+                <i class="fa-solid fa-moon text-brand-gold"></i> مقاصدي
+            </a>
+            <a href="index.html" class="px-5 py-2 rounded-xl bg-brand-emerald/10 border border-brand-emerald/30 text-brand-emerald font-bold hover:bg-brand-emerald/20 transition">
+                <i class="fa-solid fa-arrow-right ml-2"></i> العودة للمنصة
+            </a>
+        </div>
+    </header>
+
+    <!-- Hero -->
+    <section class="py-16 text-center">
+        <div class="max-w-4xl mx-auto px-4">
+            <div class="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-brand-cyan/10 border border-brand-cyan/30 text-brand-cyan text-sm font-bold mb-6">
+                <i class="fa-solid fa-book"></i>
+                المكتبة الشرعية
+            </div>
+            <h1 class="text-4xl sm:text-6xl font-black text-white mb-6 leading-tight">
+                تعلّم <span class="text-holo-emerald">المفاهيم المالية</span>
+            </h1>
+            <p class="text-lg text-slate-300 leading-relaxed">
+                مقالات ومصطلحات تشرح المعاملات المالية الإسلامية بلغة بسيطة.
+            </p>
+        </div>
+    </section>
+
+    <!-- المقالات -->
+    <section class="py-12">
+        <div class="max-w-7xl mx-auto px-4">
+            <h2 class="text-3xl font-black text-white mb-8">أحدث المقالات</h2>
+            
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+                
+                <!-- مقالة 1 -->
+                <div class="bento-card p-6 rounded-3xl">
+                    <div class="w-14 h-14 rounded-2xl bg-brand-emerald/10 border border-brand-emerald/30 flex items-center justify-center mb-4">
+                        <i class="fa-solid fa-scale-balanced text-brand-emerald text-2xl"></i>
+                    </div>
+                    <span class="text-xs text-brand-emerald font-bold">مفهوم أساسي</span>
+                    <h3 class="text-xl font-black text-white mt-2 mb-3">ما هي المرابحة؟</h3>
+                    <p class="text-slate-400 text-sm leading-relaxed mb-4">المرابحة هي عقد بيع بثمن مؤجل، يشتري فيه المصرف السلعة ويبيعها للعميل بربح معلوم...</p>
+                    <a href="#" class="text-brand-emerald font-bold text-sm hover:text-brand-gold transition">اقرأ المزيد ←</a>
+                </div>
+
+                <!-- مقالة 2 -->
+                <div class="bento-card p-6 rounded-3xl">
+                    <div class="w-14 h-14 rounded-2xl bg-brand-cyan/10 border border-brand-cyan/30 flex items-center justify-center mb-4">
+                        <i class="fa-solid fa-handshake text-brand-cyan text-2xl"></i>
+                    </div>
+                    <span class="text-xs text-brand-cyan font-bold">مفهوم أساسي</span>
+                    <h3 class="text-xl font-black text-white mt-2 mb-3">ما هي المضاربة؟</h3>
+                    <p class="text-slate-400 text-sm leading-relaxed mb-4">المضاربة هي عقد بين طرفين: أحدهما يقدم رأس المال (المصرف)، والآخر يقدم العمل (العميل)...</p>
+                    <a href="#" class="text-brand-cyan font-bold text-sm hover:text-brand-gold transition">اقرأ المزيد ←</a>
+                </div>
+
+                <!-- مقالة 3 -->
+                <div class="bento-card p-6 rounded-3xl">
+                    <div class="w-14 h-14 rounded-2xl bg-brand-gold/10 border border-brand-gold/30 flex items-center justify-center mb-4">
+                        <i class="fa-solid fa-certificate text-brand-gold text-2xl"></i>
+                    </div>
+                    <span class="text-xs text-brand-gold font-bold">مفهوم أساسي</span>
+                    <h3 class="text-xl font-black text-white mt-2 mb-3">ما هي الصكوك؟</h3>
+                    <p class="text-slate-400 text-sm leading-relaxed mb-4">الصكوك هي أوراق مالية إسلامية تمثل حصصاً في ملكية أصول حقيقية، وتعد بديلاً للصكوك التقليدية...</p>
+                    <a href="#" class="text-brand-gold font-bold text-sm hover:text-brand-emerald transition">اقرأ المزيد ←</a>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-black border-t border-brand-border/30 py-8 text-center text-slate-500 text-sm">
+        <p>© 2026 منصة مقاصدي — جميع الحقوق محفوظة</p>
+    </footer>
+
+</body>
+</html>
