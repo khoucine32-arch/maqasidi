@@ -15,10 +15,7 @@ router.get('/', async (req, res) => {
             data: products
         });
     } catch (error) {
-        res.status(500).json({
-            success: false,
-            message: error.message
-        });
+        res.status(500).json({ success: false, message: error.message });
     }
 });
 
@@ -29,20 +26,11 @@ router.get('/:id', async (req, res) => {
     try {
         const product = await Product.findById(req.params.id);
         if (!product) {
-            return res.status(404).json({
-                success: false,
-                message: 'المنتج غير موجود'
-            });
+            return res.status(404).json({ success: false, message: 'المنتج غير موجود' });
         }
-        res.json({
-            success: true,
-            data: product
-        });
+        res.json({ success: true, data: product });
     } catch (error) {
-        res.status(500).json({
-            success: false,
-            message: error.message
-        });
+        res.status(500).json({ success: false, message: error.message });
     }
 });
 
@@ -55,10 +43,7 @@ router.get('/by-name/:name/maqasid', async (req, res) => {
         const product = await Product.findOne({ name: productName });
         
         if (!product) {
-            return res.status(404).json({
-                success: false,
-                message: 'المنتج غير موجود: ' + productName
-            });
+            return res.status(404).json({ success: false, message: 'المنتج غير موجود: ' + productName });
         }
         
         const score = calculateMaqasidScore(product);
@@ -73,15 +58,12 @@ router.get('/by-name/:name/maqasid', async (req, res) => {
             maqasid: score
         });
     } catch (error) {
-        res.status(500).json({
-            success: false,
-            message: error.message
-        });
+        res.status(500).json({ success: false, message: error.message });
     }
 });
 
 // ==========================================
-// 4. البوابة الفقهية (Fiqh Gate) - البحث بالاسم
+// 4. Fiqh Gate - البحث بالاسم
 // ==========================================
 router.get('/by-name/:name/fiqh', async (req, res) => {
     try {
@@ -89,10 +71,7 @@ router.get('/by-name/:name/fiqh', async (req, res) => {
         const product = await Product.findOne({ name: productName });
         
         if (!product) {
-            return res.status(404).json({
-                success: false,
-                message: 'المنتج غير موجود: ' + productName
-            });
+            return res.status(404).json({ success: false, message: 'المنتج غير موجود: ' + productName });
         }
         
         const fiqhGate = checkFiqhGate(product);
@@ -104,13 +83,13 @@ router.get('/by-name/:name/fiqh', async (req, res) => {
                 name: product.name,
                 bank: product.bank
             },
-            fiqhGate: fiqhGate
+            fiqhGate: {
+                ...fiqhGate,
+                madhahib: product.fiqhGate.madhahib || []  // ← تمرير المذاهب هنا
+            }
         });
     } catch (error) {
-        res.status(500).json({
-            success: false,
-            message: error.message
-        });
+        res.status(500).json({ success: false, message: error.message });
     }
 });
 

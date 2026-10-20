@@ -46,6 +46,14 @@ const productSchema = new mongoose.Schema({
         school: { type: String, default: 'مالكي' },        // المذهب المعتمد
         controversial: { type: Boolean, default: false },  // هل هو محل خلاف؟
         controversyNote: { type: String, default: '' },    // ملاحظة عن الخلاف
+                // ===== آراء المذاهب الأربعة =====
+        madhahib: [
+            {
+                school: { type: String },    // "مالكي"، "حنفي"، "شافعي"، "حنبلي"
+                ruling: { type: String },    // "جائز"، "ممنوع"، "مكروه"، "بشروط"
+                reasoning: { type: String }  // سبب الحكم (مثلاً: سد الذريعة)
+            }
+        ],
         references: [{ type: String }]                     // المراجع الفقهية
     },
     // ===== Maqasid Score (الجديد) =====

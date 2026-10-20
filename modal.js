@@ -144,7 +144,60 @@ function displayModal(product) {
                     </li>
                 </ul>
             </div>
-            
+            <!-- البوابة الفقهية -->
+            ${product.fiqhGate ? `
+            <div class="mb-8">
+                <h3 class="text-xl font-black text-white mb-4 flex items-center gap-2">
+                    <i class="fa-solid fa-gavel text-brand-gold"></i>
+                    البوابة الفقهية
+                </h3>
+                <div class="bg-black/40 p-4 rounded-2xl border border-brand-gold/30">
+                    <div class="flex items-center justify-between mb-3">
+                        <span class="text-slate-300 font-bold">الحكم:</span>
+                        <span class="px-3 py-1 rounded-full text-xs font-black ${
+                            product.fiqhGate.passed && !product.fiqhGate.controversial ? 'bg-emerald-500/20 text-emerald-400 border border-emerald-500/40' :
+                            product.fiqhGate.controversial ? 'bg-yellow-500/20 text-yellow-400 border border-yellow-500/40' :
+                            'bg-red-500/20 text-red-400 border border-red-500/40'
+                        }">
+                            ${
+                                product.fiqhGate.passed && !product.fiqhGate.controversial ? '✅ صحيح فقهياً' :
+                                product.fiqhGate.controversial ? '⚠️ محل خلاف' :
+                                '❌ مرفوض'
+                            }
+                        </span>
+                    </div>
+                    <div class="flex items-center justify-between mb-3">
+                        <span class="text-slate-300 font-bold">المذهب:</span>
+                        <span class="text-brand-gold font-bold">${product.fiqhGate.school || 'مالكي'}</span>
+                    </div>
+                    
+                    ${product.fiqhGate.madhahib && product.fiqhGate.madhahib.length > 0 ? `
+                    <div class="mt-4 pt-4 border-t border-brand-gold/20">
+                        <h4 class="text-sm font-black text-brand-gold mb-2">⚖️ آراء المذاهب الأربعة:</h4>
+                        <div class="space-y-2">
+                            ${product.fiqhGate.madhahib.map(m => `
+                                <div class="flex justify-between items-center text-xs bg-black/20 p-2 rounded-lg">
+                                    <span class="text-slate-300 font-bold">${m.school}:</span>
+                                    <span class="font-black ${
+                                        m.ruling.includes('جائز') ? 'text-emerald-400' :
+                                        m.ruling.includes('ممنوع') ? 'text-red-400' :
+                                        'text-yellow-400'
+                                    }">${m.ruling}</span>
+                                </div>
+                            `).join('')}
+                        </div>
+                    </div>
+                    ` : ''}
+
+                    ${product.fiqhGate.controversial ? `
+                    <div class="mt-4 p-3 rounded-xl bg-yellow-500/10 border border-yellow-500/30 text-yellow-300 text-sm">
+                        <i class="fa-solid fa-triangle-exclamation ml-1"></i>
+                        ${product.fiqhGate.controversyNote || 'هذا المنتج محل خلاف بين العلماء.'}
+                    </div>
+                    ` : ''}
+                </div>
+            </div>
+            ` : ''}            
             <!-- التقييم المقاصدي -->
             <div class="mb-8">
                 <h3 class="text-xl font-black text-white mb-4 flex items-center gap-2">

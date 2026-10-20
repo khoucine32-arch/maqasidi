@@ -100,7 +100,6 @@ function checkFiqhGate(product) {
     
     return {
         contractValid: gate.contractValid || false,
-        noRiba: gate.noRiba || false,
         noGharar: gate.noGharar || false,
         noMaysir: gate.noMaysir || false,
         noInvalidConditions: gate.noInvalidConditions || false,
@@ -108,7 +107,8 @@ function checkFiqhGate(product) {
         school: gate.school || 'مالكي',
         controversial: gate.controversial || false,
         controversyNote: gate.controversyNote || '',
-        references: gate.references || []
+        references: gate.references || [],
+        madhahib: gate.madhahib || []
     };
 }
 
