@@ -1,0 +1,33 @@
+/* ===== اللمسة الإسلامية الفخمة ===== */
+body {
+    background-color: #031713 !important;
+    background-image: 
+        radial-gradient(circle at 15% 15%, rgba(215, 174, 82, 0.08) 0%, transparent 25%),
+        radial-gradient(circle at 85% 85%, rgba(0, 255, 157, 0.05) 0%, transparent 25%),
+        url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23d7ae52' fill-opacity='0.15'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E") !important;
+}
+
+/* إطارات ذهبية واضحة للبطاقات */
+.bento-card {
+    border: 2px solid rgba(215, 174, 82, 0.5) !important;
+    box-shadow: 0 0 20px rgba(215, 174, 82, 0.15), inset 0 0 20px rgba(215, 174, 82, 0.05) !important;
+    position: relative;
+    overflow: hidden;
+}
+
+/* توهج زخرفي في الزاوية العلوية للبطاقة */
+.bento-card::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    right: 0;
+    width: 100px;
+    height: 100px;
+    background: radial-gradient(circle at top right, rgba(215, 174, 82, 0.2), transparent 70%);
+    pointer-events: none;
+}
+
+/* تحسين عنوان المنصة */
+h1, h2 {
+    text-shadow: 0 0 20px rgba(215, 174, 82, 0.3);
+}
