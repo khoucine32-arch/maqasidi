@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>حاسبة التمويل | مقاصدي</title>
+    
+    <link href="https://fonts.googleapis.com/css2?family=Amiri:wght@400;700&family=Tajawal:wght@400;500;700;800;900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        brand: {
+                            dark: '#030807',
+                            emerald: '#00ff9d',
+                            cyan: '#00f0ff',
+                            gold: '#ffd700',
+                            border: 'rgba(0, 255, 157, 0.18)',
+                        }
+                    },
+                    fontFamily: { sans: ['Tajawal', 'sans-serif'] }
+                }
+            }
+        }
+    </script>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body class="min-h-screen">
+
+    <!-- Header -->
+    <header class="bg-brand-dark/90 backdrop-blur-xl border-b border-brand-border sticky top-0 z-50">
+        <div class="max-w-7xl mx-auto px-4 py-4 flex items-center justify-between">
+            <a href="index.html" class="flex items-center gap-2 text-white font-black text-2xl">
+                <i class="fa-solid fa-moon text-brand-gold"></i> مقاصدي
+            </a>
+            <a href="index.html" class="px-5 py-2 rounded-xl bg-brand-emerald/10 border border-brand-emerald/30 text-brand-emerald font-bold hover:bg-brand-emerald/20 transition">
+                <i class="fa-solid fa-arrow-right ml-2"></i> العودة للمنصة
+            </a>
+        </div>
+    </header>
+
+    <!-- Hero -->
+    <section class="py-16 text-center">
+        <div class="max-w-4xl mx-auto px-4">
+            <div class="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-brand-cyan/10 border border-brand-cyan/30 text-brand-cyan text-sm font-bold mb-6">
+                <i class="fa-solid fa-calculator"></i>
+                حاسبة التمويل
+            </div>
+            <h1 class="text-4xl sm:text-6xl font-black text-white mb-6 leading-tight">
+                احسب <span class="text-holo-emerald">قسطك الشهري</span>
+            </h1>
+            <p class="text-lg text-slate-300 leading-relaxed">
+                أداة دقيقة لحساب القسط الشهري والتكلفة الإجمالية للتمويل.
+            </p>
+        </div>
+    </section>
+
+    <!-- الحاسبة -->
+    <section class="py-12">
+        <div class="max-w-3xl mx-auto px-4">
+            <div class="bento-card p-8 rounded-3xl">
+                <form id="calcForm" class="space-y-6">
+                    
+                    <!-- المبلغ -->
+                    <div>
+                        <label class="block text-white font-bold mb-2">
+                            <i class="fa-solid fa-money-bill-wave text-brand-emerald ml-2"></i>
+                            مبلغ التمويل (بالدينار الجزائري)
+                        </label>
+                        <input type="number" id="amount" class="w-full bg-black/40 border border-brand-border rounded-xl px-4 py-3 text-white focus:outline-none focus:border-brand-emerald transition" placeholder="0" value="2000000">
+                    </div>
+
+                    <!-- المدة -->
+                    <div>
+                        <label class="block text-white font-bold mb-2">
+                            <i class="fa-solid fa-clock text-brand-cyan ml-2"></i>
+                            المدة (بالأشهر)
+                        </label>
+                        <input type="number" id="duration" class="w-full bg-black/40 border border-brand-border rounded-xl px-4 py-3 text-white focus:outline-none focus:border-brand-emerald transition" placeholder="0" value="48">
+                    </div>
+
+                    <!-- نسبة الربح -->
+                    <div>
+                        <label class="block text-white font-bold mb-2">
+                            <i class="fa-solid fa-chart-line text-brand-gold ml-2"></i>
+                            نسبة الربح السنوية (%)
+                        </label>
+                        <input type="number" id="rate" step="0.1" class="w-full bg-black/40 border border-brand-border rounded-xl px-4 py-3 text-white focus:outline-none focus:border-brand-emerald transition" placeholder="0" value="6">
+                    </div>
+
+                    <!-- الزر -->
+                    <button type="button" onclick="calculateMurabaha()" class="w-full py-4 rounded-xl bg-gradient-to-r from-brand-emerald to-brand-cyan text-black font-black text-lg hover:opacity-90 transition">
+                        <i class="fa-solid fa-calculator ml-2"></i>
+                        احسب القسط
+                    </button>
+                </form>
+
+                <!-- النتيجة -->
+                <div id="result" class="mt-8 p-6 rounded-2xl bg-brand-cyan/10 border border-brand-cyan/30 hidden">
+                    <h3 class="text-xl font-black text-brand-cyan mb-4">نتيجة الحساب:</h3>
+                    <div class="space-y-2 text-white">
+                        <p>المبلغ الأصلي: <span id="originalAmount" class="font-black text-brand-emerald">0</span> دج</p>
+                        <p>إجمالي الربح: <span id="totalProfit" class="font-black text-brand-gold">0</span> دج</p>
+                        <p>إجمالي المبلغ المدفوع: <span id="totalPaid" class="font-black text-brand-emerald">0</span> دج</p>
+                        <p class="text-2xl mt-4">القسط الشهري: <span id="monthlyPayment" class="font-black text-brand-cyan">0</span> دج</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-black border-t border-brand-border/30 py-8 text-center text-slate-500 text-sm">
+        <p>© 2026 منصة مقاصدي — جميع الحقوق محفوظة</p>
+    </footer>
+
+    <script src="calculator.js"></script>
+</body>
+</html>
