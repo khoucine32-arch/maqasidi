@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>حاسبة الزكاة | مقاصدي</title>
+    
+    <link href="https://fonts.googleapis.com/css2?family=Amiri:wght@400;700&family=Tajawal:wght@400;500;700;800;900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        brand: {
+                            dark: '#030807',
+                            emerald: '#00ff9d',
+                            cyan: '#00f0ff',
+                            gold: '#ffd700',
+                            border: 'rgba(0, 255, 157, 0.18)',
+                        }
+                    },
+                    fontFamily: { sans: ['Tajawal', 'sans-serif'] }
+                }
+            }
+        }
+    </script>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body class="min-h-screen">
+
+    <!-- Header -->
+    <header class="bg-brand-dark/90 backdrop-blur-xl border-b border-brand-border sticky top-0 z-50">
+        <div class="max-w-7xl mx-auto px-4 py-4 flex items-center justify-between">
+            <a href="index.html" class="flex items-center gap-2 text-white font-black text-2xl">
+                <i class="fa-solid fa-moon text-brand-gold"></i> مقاصدي
+            </a>
+            <a href="index.html" class="px-5 py-2 rounded-xl bg-brand-emerald/10 border border-brand-emerald/30 text-brand-emerald font-bold hover:bg-brand-emerald/20 transition">
+                <i class="fa-solid fa-arrow-right ml-2"></i> العودة للمنصة
+            </a>
+        </div>
+    </header>
+
+    <!-- Hero -->
+    <section class="py-16 text-center">
+        <div class="max-w-4xl mx-auto px-4">
+            <div class="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-brand-gold/10 border border-brand-gold/30 text-brand-gold text-sm font-bold mb-6">
+                <i class="fa-solid fa-coins"></i>
+                حاسبة الزكاة
+            </div>
+            <h1 class="text-4xl sm:text-6xl font-black text-white mb-6 leading-tight">
+                احسب <span class="text-holo-emerald">زكاتك</span> بسهولة
+            </h1>
+            <p class="text-lg text-slate-300 leading-relaxed">
+                أداة دقيقة لحساب الزكاة على النقد والذهب والأسهم، وفقاً للضوابط الشرعية.
+            </p>
+        </div>
+    </section>
+
+    <!-- الحاسبة -->
+    <section class="py-12">
+        <div class="max-w-3xl mx-auto px-4">
+            <div class="bento-card p-8 rounded-3xl">
+                <form id="zakatForm" class="space-y-6">
+                    
+                    <!-- النقد -->
+                    <div>
+                        <label class="block text-white font-bold mb-2">
+                            <i class="fa-solid fa-money-bill-wave text-brand-emerald ml-2"></i>
+                            النقد (بالدينار الجزائري)
+                        </label>
+                        <input type="number" id="cash" class="w-full bg-black/40 border border-brand-border rounded-xl px-4 py-3 text-white focus:outline-none focus:border-brand-emerald transition" placeholder="0" value="0">
+                    </div>
+
+                    <!-- الذهب -->
+                    <div>
+                        <label class="block text-white font-bold mb-2">
+                            <i class="fa-solid fa-ring text-brand-gold ml-2"></i>
+                            الذهب (بالغرام)
+                        </label>
+                        <input type="number" id="gold" class="w-full bg-black/40 border border-brand-border rounded-xl px-4 py-3 text-white focus:outline-none focus:border-brand-emerald transition" placeholder="0" value="0">
+                        <p class="text-xs text-slate-500 mt-1">سعر الغرام: 12,000 دج (قابل للتعديل)</p>
+                    </div>
+
+                    <!-- الأسهم -->
+                    <div>
+                        <label class="block text-white font-bold mb-2">
+                            <i class="fa-solid fa-chart-line text-brand-cyan ml-2"></i>
+                            قيمة الأسهم (بالدينار الجزائري)
+                        </label>
+                        <input type="number" id="stocks" class="w-full bg-black/40 border border-brand-border rounded-xl px-4 py-3 text-white focus:outline-none focus:border-brand-emerald transition" placeholder="0" value="0">
+                    </div>
+
+                    <!-- الدين -->
+                    <div>
+                        <label class="block text-white font-bold mb-2">
+                            <i class="fa-solid fa-hand-holding-dollar text-red-400 ml-2"></i>
+                            الديون المستحقة عليك (بالدينار الجزائري)
+                        </label>
+                        <input type="number" id="debts" class="w-full bg-black/40 border border-brand-border rounded-xl px-4 py-3 text-white focus:outline-none focus:border-brand-emerald transition" placeholder="0" value="0">
+                    </div>
+
+                    <!-- الزر -->
+                    <button type="button" onclick="calculateZakat()" class="w-full py-4 rounded-xl bg-gradient-to-r from-brand-emerald to-brand-cyan text-black font-black text-lg hover:opacity-90 transition">
+                        <i class="fa-solid fa-calculator ml-2"></i>
+                        احسب الزكاة
+                    </button>
+                </form>
+
+                <!-- النتيجة -->
+                <div id="result" class="mt-8 p-6 rounded-2xl bg-brand-gold/10 border border-brand-gold/30 hidden">
+                    <h3 class="text-xl font-black text-brand-gold mb-4">نتيجة الحساب:</h3>
+                    <div class="space-y-2 text-white">
+                        <p>إجمالي الثروة: <span id="totalWealth" class="font-black text-brand-emerald">0</span> دج</p>
+                        <p>الوعاء الزكوي (بعد خصم الديون): <span id="zakatBase" class="font-black text-brand-emerald">0</span> دج</p>
+                        <p>هل بلغت النصاب؟ <span id="nisabStatus" class="font-black text-brand-gold">-</span></p>
+                        <p class="text-2xl mt-4">الزكاة المستحقة: <span id="zakatAmount" class="font-black text-brand-gold">0</span> دج</p>
+                    </div>
+                    <p class="text-xs text-slate-500 mt-4">
+                        * النصاب = 85 غرام ذهب (ما يعادل 1,020,000 دج تقريباً). نسبة الزكاة = 2.5%.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-black border-t border-brand-border/30 py-8 text-center text-slate-500 text-sm">
+        <p>© 2026 منصة مقاصدي — جميع الحقوق محفوظة</p>
+    </footer>
+
+    <script src="zakat.js"></script>
+</body>
+</html>
